@@ -3,14 +3,15 @@ require('dotenv').config()
 import { Recipe, RecipeTag, Tag, Review, Ingredient, RecipeIngredient } from './models'
 
 const isDev = process.env.NODE_ENV === 'development'
+const isTest = process.env.NODE_ENV !== 'test'
 
-const dbInit = () => {
-  Tag.sync({ alter: isDev })
-  Ingredient.sync({ alter: isDev })
-  Recipe.sync({ alter: isDev })
-  Review.sync({ alter: isDev })
-  RecipeTag.sync({ alter: isDev })
-  RecipeIngredient.sync({ alter: isDev })
-}
+const dbInit = () => Promise.all([
+    Tag.sync({ alter: isDev || isTest }),
+    Ingredient.sync({ alter: isDev || isTest }),
+    Recipe.sync({ alter: isDev || isTest }),
+    Review.sync({ alter: isDev || isTest }),
+    RecipeTag.sync({ alter: isDev || isTest }),
+    RecipeIngredient.sync({ alter: isDev || isTest }),
+  ])
 
 export default dbInit 
