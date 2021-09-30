@@ -14,7 +14,6 @@ const dateSpy = jest.spyOn(global, 'Date')
 describe('Review Service', () => {
     afterAll(() => {
         dateSpy.mockRestore()
-        console.log(new Date())
     })
 
     describe('Publish', () => {

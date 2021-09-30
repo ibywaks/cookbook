@@ -1,8 +1,6 @@
 require('dotenv').config()
 import { Dialect, Sequelize } from 'sequelize'
 
-console.log('Running on environment:', process.env.NODE_ENV)
-
 const isTest = process.env.NODE_ENV === 'test'
 
 const dbName = isTest ? process.env.TEST_DB_NAME as string : process.env.DB_NAME as string
