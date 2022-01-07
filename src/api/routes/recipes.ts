@@ -3,10 +3,11 @@ import { GetAllRecipesFilters } from '../../db/dal/types'
 
 import * as controller from '../controllers/recipes'
 import { CreateRecipeDTO, UpdateRecipeDTO } from '../dto/recipe.dto'
+import {checkCache} from '../../lib/check-cache'
 
 const recipesRouter = Router()
 
-recipesRouter.get('/', async (req: Request, res: Response) => {
+recipesRouter.get('/', checkCache, async (req: Request, res: Response) => {
     const filters: GetAllRecipesFilters = req.query
     
     const results = await controller.getAll(filters)
