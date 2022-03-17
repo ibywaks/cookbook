@@ -5,7 +5,7 @@ import {CreateIngredientDTO, FilterIngredientsDTO, UpdateIngredientDTO} from '..
 
 const ingredientsRouter = Router()
 
-ingredientsRouter.get(':/id', async (req: Request, res: Response) => {
+ingredientsRouter.get('/:id', async (req: Request, res: Response) => {
     const id = Number(req.params.id)
 
     const result = await ingredientController.getById(id)
