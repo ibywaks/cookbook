@@ -1,34 +1,33 @@
-import { Router } from 'express'
+import { Router } from "express";
 
-const reviewsRouter = Router()
+const reviewsRouter = Router();
 
-reviewsRouter.get('/', () => {
+reviewsRouter.get("/", () => {
   // fetch reviews
-})
+});
 
-reviewsRouter.post('/', () => {
+reviewsRouter.post("/", () => {
   // create review
-})
+});
 
-reviewsRouter.get('/:slug', () => {
+reviewsRouter.get("/:slug", () => {
   // fetch review
-})
+});
 
-reviewsRouter.put('/:id', () => {
+reviewsRouter.put("/:id", () => {
   // update review
-})
+});
 
-reviewsRouter.delete('/:id', () => {
+reviewsRouter.delete("/:id", () => {
   // delete review
-})
+});
 
-reviewsRouter.post('/:id/publish', () => {
+reviewsRouter.post("/:id/publish", () => {
   // publish review
-})
+});
 
-reviewsRouter.post('/:id/unpublish', () => {
+reviewsRouter.post("/:id/unpublish", () => {
   // unpublish review
-})
+});
 
-export default reviewsRouter
-
+export default reviewsRouter;

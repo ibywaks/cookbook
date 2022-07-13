@@ -1,69 +1,75 @@
-import { DataTypes, Model, Optional } from 'sequelize'
-import sequelizeConnection from '../config'
-import {IngredientInput} from './Ingredient'
+import { DataTypes, Model, Optional } from "sequelize";
+import sequelizeConnection from "../config";
+import { IngredientInput } from "./Ingredient";
 
 interface RecipeMetadata {
-    cookingTime: string | null
+  cookingTime: string | null;
 }
 
 interface RecipeAttributes {
-    id: number;
-    title: string;
-    slug?: string;
-    instruction?: string;
-    author?: string;
-    meta?: RecipeMetadata;
-    createdAt?: Date;
-    updatedAt?: Date;
-    deletedAt?: Date;
+  id: number;
+  title: string;
+  slug?: string;
+  instruction?: string;
+  author?: string;
+  meta?: RecipeMetadata;
+  createdAt?: Date;
+  updatedAt?: Date;
+  deletedAt?: Date;
 }
 
-export interface RecipeInput extends Optional<RecipeAttributes, 'id' | 'slug'> {
-    ingredients?: IngredientInput[]
+export interface RecipeInput extends Optional<RecipeAttributes, "id" | "slug"> {
+  ingredients?: IngredientInput[];
 }
 export interface RecipeOutput extends Required<RecipeAttributes> {}
 
-class Recipe extends Model<RecipeAttributes, RecipeInput> implements RecipeAttributes {
-    public id!: number;
-    public title!: string;
-    public slug!: string;
-    public instruction!: string;
-    public author!: string;
-    public meta!: RecipeMetadata;
+class Recipe
+  extends Model<RecipeAttributes, RecipeInput>
+  implements RecipeAttributes
+{
+  public id!: number;
+  public title!: string;
+  public slug!: string;
+  public instruction!: string;
+  public author!: string;
+  public meta!: RecipeMetadata;
 
-    // timestamps!
-    public readonly createdAt!: Date;
-    public readonly updatedAt!: Date;
-    public readonly deletedAt!: Date;
+  // timestamps!
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
+  public readonly deletedAt!: Date;
 }
 
-Recipe.init({
+Recipe.init(
+  {
     id: {
-        type: DataTypes.INTEGER.UNSIGNED,
-        autoIncrement: true,
-        primaryKey: true,
+      type: DataTypes.INTEGER.UNSIGNED,
+      autoIncrement: true,
+      primaryKey: true,
     },
     title: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     slug: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
     instruction: {
-        type: DataTypes.TEXT,
+      type: DataTypes.TEXT,
     },
     meta: {
-        type: DataTypes.JSON
+      type: DataTypes.JSON,
     },
     author: {
-        type: DataTypes.STRING
-    }
-}, {
+      type: DataTypes.STRING,
+    },
+  },
+  {
     sequelize: sequelizeConnection,
-    paranoid: true
-})
+    paranoid: true,
+  }
+);
 
-export default Recipe
+export default Recipe;

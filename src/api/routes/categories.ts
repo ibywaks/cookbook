@@ -1,26 +1,26 @@
-import { Router } from 'express'
+import { Router } from "express";
 
-const categoriesRouter = Router()
+const categoriesRouter = Router();
 
-categoriesRouter.get('/', () => {
+categoriesRouter.get("/", () => {
   // list food categories
-})
+});
 
-categoriesRouter.get('/:slug', () => {
+categoriesRouter.get("/:slug", () => {
   // get category by slug
   // load recipes related
-})
+});
 
-categoriesRouter.put('/:id', () => {
+categoriesRouter.put("/:id", () => {
   // update category
-})
+});
 
-categoriesRouter.delete('/:id', () => {
+categoriesRouter.delete("/:id", () => {
   // delete category
-})
+});
 
-categoriesRouter.post('/', () => {
+categoriesRouter.post("/", () => {
   // create food category
-})
+});
 
-export default categoriesRouter
+export default categoriesRouter;

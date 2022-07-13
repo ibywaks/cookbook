@@ -1,58 +1,65 @@
-import { DataTypes, Model, ModelStatic, Optional } from 'sequelize'
-import sequelizeConnection from '../config'
+import { DataTypes, Model, ModelStatic, Optional } from "sequelize";
+import sequelizeConnection from "../config";
 
 interface IngredientAttributes {
-    id: number;
-    name: string;
-    slug: string;
-    description?: string;
-    foodGroup?: string;
-    createdAt?: Date;
-    updatedAt?: Date;
-    deletedAt?: Date;
+  id: number;
+  name: string;
+  slug: string;
+  description?: string;
+  foodGroup?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+  deletedAt?: Date;
 }
 
-export interface IngredientInput extends Optional<IngredientAttributes, 'id' | 'slug'> {}
+export interface IngredientInput
+  extends Optional<IngredientAttributes, "id" | "slug"> {}
 
 export interface IngredientOuput extends Required<IngredientAttributes> {}
 
-class Ingredient extends Model<IngredientAttributes, IngredientInput> implements IngredientAttributes {
-    public id!: number
-    public name!: string
-    public slug!: string
-    public description!: string
-    public foodGroup!: string
-    
-    // timestamps!
-    public readonly createdAt!: Date;
-    public readonly updatedAt!: Date;
-    public readonly deletedAt!: Date;
+class Ingredient
+  extends Model<IngredientAttributes, IngredientInput>
+  implements IngredientAttributes
+{
+  public id!: number;
+  public name!: string;
+  public slug!: string;
+  public description!: string;
+  public foodGroup!: string;
+
+  // timestamps!
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
+  public readonly deletedAt!: Date;
 }
 
-Ingredient.init({
+Ingredient.init(
+  {
     id: {
-        type: DataTypes.INTEGER.UNSIGNED,
-        autoIncrement: true,
-        primaryKey: true,
+      type: DataTypes.INTEGER.UNSIGNED,
+      autoIncrement: true,
+      primaryKey: true,
     },
     name: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     slug: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
     description: {
-        type: DataTypes.TEXT
+      type: DataTypes.TEXT,
     },
     foodGroup: {
-        type: DataTypes.STRING
-    }
-}, {
-  sequelize: sequelizeConnection,
-  paranoid: true
-})
+      type: DataTypes.STRING,
+    },
+  },
+  {
+    sequelize: sequelizeConnection,
+    paranoid: true,
+  }
+);
 
-export default Ingredient
+export default Ingredient;
