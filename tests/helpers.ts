@@ -1,5 +1,5 @@
-import { agent as _request } from "supertest"
+import { agent as _request } from "supertest";
 
-import {get as getApplication} from '../src/index'
+import { get as getApplication } from "../src/index";
 
-export const request = _request(getApplication())
+export const request = _request(getApplication());
