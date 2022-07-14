@@ -6,6 +6,7 @@ const config: Config.InitialOptions = {
   transform: {
     "^.+\\.ts?$": "ts-jest",
   },
+  reporters: ["default", "jest-junit"],
   // setupFilesAfterEnv: ['./tests/bootstrap.ts']
 };
 export default config;

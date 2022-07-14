@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -28,10 +28,12 @@ jobs:
       # Runs a single command using the runners shell
       - name: yarn install
         run: yarn install --frozen-lockfile --network-timeout 120000
-        
+
       # Runs a single command using the runners shell
       - name: yarn test
-        env: 
+        env:
           DB_DRIVER: postgres
         run: yarn run test
 
+      - name: uploader
+        run: 'curl -X POST -H "Authorization: Token token=${{ secrets.BK_TOKEN }}" -F "format=junit" -F "data=@junit.xml" -F "run_env[CI]=github" -F "run_env[key]=$GITHUB_ACTION-$GITHUB_RUN_NUMBER-$GITHUB_RUN_ATTEMPT" -F "run_env[number]=$GITHUB_RUN_NUMBER" -F "run_env[job_id]=$GITHUB_JOB" -F "run_env[branch]=$GITHUB_REF_NAME" -F "run_env[commit_sha]=$GITHUB_SHA" -F "run_env[url]=$GITHUB_REPOSITORY" https://analytics-api.buildkite.com/v1/uploads'
