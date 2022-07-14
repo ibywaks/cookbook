@@ -33,7 +33,7 @@ jobs:
       - name: yarn test
         env:
           DB_DRIVER: postgres
-        run: yarn run test
+        run: yarn run test --forceExit
 
       - name: uploader
         run: 'curl -X POST -H "Authorization: Token token=${{ secrets.BK_TOKEN }}" -F "format=junit" -F "data=@junit.xml" -F "run_env[CI]=github" -F "run_env[key]=$GITHUB_ACTION-$GITHUB_RUN_NUMBER-$GITHUB_RUN_ATTEMPT" -F "run_env[number]=$GITHUB_RUN_NUMBER" -F "run_env[job_id]=$GITHUB_JOB" -F "run_env[branch]=$GITHUB_REF_NAME" -F "run_env[commit_sha]=$GITHUB_SHA" -F "run_env[url]=$GITHUB_REPOSITORY" https://analytics-api.buildkite.com/v1/uploads'
