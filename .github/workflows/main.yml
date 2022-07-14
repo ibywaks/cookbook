@@ -28,6 +28,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: yarn install
         run: yarn install --frozen-lockfile --network-timeout 120000
+    
+      - name: Trunk Check
+        uses: trunk-io/trunk-action@v1.0.3
 
       # Runs a single command using the runners shell
       - name: yarn test
