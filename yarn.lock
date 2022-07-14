@@ -927,6 +927,13 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
+axios@^0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.26.1.tgz#1ede41c51fcf51bbbd6fd43669caaa4f0495aaa9"
+  integrity sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==
+  dependencies:
+    follow-redirects "^1.14.8"
+
 babel-jest@^27.2.4:
   version "27.2.4"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-27.2.4.tgz#21ed6729d51bdd75470bbbf3c8b08d86209fb0dc"
@@ -1082,6 +1089,14 @@ buffer-writer@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/buffer-writer/-/buffer-writer-2.0.0.tgz#ce7eb81a38f7829db09c873f2fbb792c0c98ec04"
   integrity sha512-a7ZpuTZU1TRtnwyCNW3I5dc0wWNC3VR9S++Ewyk2HHZdrO3CQJqSpd+95Us590V6AL7JqUAH2IwZ/398PmNFgw==
+
+buildkite-test-collector@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/buildkite-test-collector/-/buildkite-test-collector-1.1.0.tgz#3cf49249c0c60c3667ff6d99571ae6780e8c932b"
+  integrity sha512-OtgiAzOLCOTOjuRacC4mPFvD1mIoIMuhvDv4PHEdjLXiSCAJGw39b6fMuAzfOIW2+uPTp8BncGNu4YKcs63AyQ==
+  dependencies:
+    axios "^0.26.1"
+    uuid "^8.3.2"
 
 bytes@3.1.0:
   version "3.1.0"
@@ -1845,6 +1860,11 @@ flatted@^3.1.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.1.tgz#bbef080d95fca6709362c73044a1634f7c6e7d05"
   integrity sha512-OMQjaErSFHmHqZe+PSidH5n8j3O0F2DdnVh8JB4j4eUQ2k6KvB0qGfrKIhapvez5JerBbmWkaLYUYWISaESoXg==
+
+follow-redirects@^1.14.8:
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.1.tgz#0ca6a452306c9b276e4d3127483e29575e207ad5"
+  integrity sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==
 
 form-data@^3.0.0:
   version "3.0.1"
